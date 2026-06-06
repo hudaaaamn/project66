@@ -490,6 +490,20 @@ font-family: 'Lobster', cursive;
     overflow-y: auto;
   }
 
+  /* When card is open, let clicks pass through #card-inside so the
+     close button on #card-front (behind it in 3D space) is clickable */
+  #card.open-fully #card-inside,
+  #card.close-half #card-inside {
+    pointer-events: none;
+  }
+
+  /* After 3D flip, card-front is mirrored — move close button to left side */
+  #card.open-fully #card-front button,
+  #card.close-half #card-front button {
+    left: 1em;
+    right: auto;
+  }
+
   /* Slightly tighten wrap padding on mobile */
   .wrap {
     padding: 1.2em 1.5em;
