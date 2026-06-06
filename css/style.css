@@ -458,54 +458,64 @@ font-family: 'Lobster', cursive;
     overflow-x: hidden;
   }
 
-  /* Override fixed height for mobile */
-  #card, #card-front, #card-inside {
-    height: auto;
-    min-height: 85vh;
-  }
-
-  /* Card: 2 panels each = (100vw - 32px), with 16px margin on both sides */
+  /* Card: compact, centered, near the top */
   #card {
-    width: calc(200vw - 64px);
-    left: 16px;
+    width: calc(100vw - 32px);
+    position: relative;
+    left: auto;
     right: auto;
-    margin: 0;
-    top: 5vh;
+    top: auto;
     bottom: auto;
-    -webkit-transform: translateX(calc(32px - 100vw));
-            transform: translateX(calc(32px - 100vw));
+    margin: 2vh auto 0 auto;
+    -webkit-transform: none;
+            transform: none;
   }
 
-  /* Keep card in same horizontal position for all open/close states */
-  /* Animation is only the 3D flip of the front panel, not a card slide */
-  #card.open-half,
-  #card.open-fully,
-  #card.close-half {
-    -webkit-transform: translateX(calc(32px - 100vw));
-            transform: translateX(calc(32px - 100vw));
+  #card, #card-front, #card-inside {
+    height: 60vh;
   }
 
-  /* Allow inside content to scroll if tall */
+  /* Preserve the original desktop animation: card slides left when fully open */
+  #card.open-fully {
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+  }
+
+  /* Each panel = half the card width */
+  #card-front, #card-inside {
+    width: 50%;
+  }
+
+  /* Make close button always clickable on top */
+  #card-front button {
+    z-index: 100;
+  }
+
+  /* Slightly tighten padding */
+  .wrap {
+    padding: 1em 1.2em;
+  }
+
+  /* Scale down text for smaller card */
+  #card h1 {
+    font-size: 42px;
+  }
+
   #card-inside {
+    font-size: 1em;
     overflow-y: auto;
   }
 
-  /* When card is open, let clicks pass through #card-inside so the
-     close button on #card-front (behind it in 3D space) is clickable */
-  #card.open-fully #card-inside,
-  #card.close-half #card-inside {
-    pointer-events: none;
+  /* Scale down cake area */
+  .cake_and_velas {
+    bottom: 15%;
   }
 
-  /* After 3D flip, card-front is mirrored — move close button to left side */
-  #card.open-fully #card-front button,
-  #card.close-half #card-front button {
-    left: 1em;
-    right: auto;
-  }
-
-  /* Slightly tighten wrap padding on mobile */
-  .wrap {
-    padding: 1.2em 1.5em;
+  /* Smaller polaroid photo */
+  .polaroid {
+    width: 150px;
+    height: 140px;
+    border-width: 5px;
+    border-bottom-width: 30px;
   }
 }
