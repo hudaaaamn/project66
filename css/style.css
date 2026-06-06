@@ -451,3 +451,47 @@ font-family: 'Lobster', cursive;
     opacity: 1;
   }
 }
+
+/* ============================================== Mobile Responsive */
+@media (max-width: 767px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  /* Override fixed height for mobile */
+  #card, #card-front, #card-inside {
+    height: auto;
+    min-height: 85vh;
+  }
+
+  /* Card: 2 panels each = (100vw - 32px), with 16px margin on both sides */
+  #card {
+    width: calc(200vw - 64px);
+    left: 16px;
+    right: auto;
+    margin: 0;
+    top: 5vh;
+    bottom: auto;
+    -webkit-transform: translateX(calc(32px - 100vw));
+            transform: translateX(calc(32px - 100vw));
+  }
+
+  /* Keep card in same horizontal position for all open/close states */
+  /* Animation is only the 3D flip of the front panel, not a card slide */
+  #card.open-half,
+  #card.open-fully,
+  #card.close-half {
+    -webkit-transform: translateX(calc(32px - 100vw));
+            transform: translateX(calc(32px - 100vw));
+  }
+
+  /* Allow inside content to scroll if tall */
+  #card-inside {
+    overflow-y: auto;
+  }
+
+  /* Slightly tighten wrap padding on mobile */
+  .wrap {
+    padding: 1.2em 1.5em;
+  }
+}
