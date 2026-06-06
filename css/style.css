@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 @import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+html {
+  min-height: 100%;
+  background: #E5E5E5 url("bg.jpg") center center / cover no-repeat;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
 body {
-  background: #E5E5E5;
-  background-image: url("bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
+  background: transparent;
   min-height: 100vh;
+  height: 100%;
 }
 
 #card-front {
